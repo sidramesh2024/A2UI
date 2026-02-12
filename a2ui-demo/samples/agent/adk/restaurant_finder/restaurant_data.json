@@ -1,0 +1,191 @@
+[
+  {
+    "name": "Xi'an Famous Foods",
+    "cuisine": "Chinese",
+    "detail": "Spicy and savory hand-pulled noodles.",
+    "imageUrl": "http://localhost:10002/static/shrimpchowmein.jpeg",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.xianfoods.com/)",
+    "address": "81 St Marks Pl, New York, NY 10003"
+  },
+  {
+    "name": "Han Dynasty",
+    "cuisine": "Chinese",
+    "detail": "Authentic Szechuan cuisine.",
+    "imageUrl": "http://localhost:10002/static/mapotofu.jpeg",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.handynasty.net/)",
+    "address": "90 3rd Ave, New York, NY 10003"
+  },
+  {
+    "name": "RedFarm",
+    "cuisine": "Chinese",
+    "detail": "Modern Chinese with a farm-to-table approach.",
+    "imageUrl": "http://localhost:10002/static/beefbroccoli.jpeg",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.redfarmnyc.com/)",
+    "address": "529 Hudson St, New York, NY 10014"
+  },
+  {
+    "name": "Mott 32",
+    "cuisine": "Chinese",
+    "detail": "Upscale Cantonese dining.",
+    "imageUrl": "http://localhost:10002/static/springrolls.jpeg",
+    "rating": "\u2605\u2605\u2605\u2605\u2605",
+    "infoLink": "[More Info](https://mott32.com/newyork/)",
+    "address": "111 W 57th St, New York, NY 10019"
+  },
+  {
+    "name": "Hwa Yuan Szechuan",
+    "cuisine": "Chinese",
+    "detail": "Famous for its cold noodles with sesame sauce.",
+    "imageUrl": "http://localhost:10002/static/kungpao.jpeg",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://hwayuannyc.com/)",
+    "address": "40 E Broadway, New York, NY 10002"
+  },
+  {
+    "name": "Cafe China",
+    "cuisine": "Chinese",
+    "detail": "Szechuan food in a 1930s Shanghai setting.",
+    "imageUrl": "http://localhost:10002/static/mapotofu.jpeg",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.cafechinanyc.com/)",
+    "address": "59 W 37th St, New York, NY 10018"
+  },
+  {
+    "name": "Philippe Chow",
+    "cuisine": "Chinese",
+    "detail": "High-end Beijing-style cuisine.",
+    "imageUrl": "http://localhost:10002/static/beefbroccoli.jpeg",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.philippechow.com/)",
+    "address": "33 E 60th St, New York, NY 10022"
+  },
+  {
+    "name": "Chinese Tuxedo",
+    "cuisine": "Chinese",
+    "detail": "Contemporary Chinese in a former opera house.",
+    "imageUrl": "http://localhost:10002/static/mapotofu.jpeg",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://chinesetuxedo.com/)",
+    "address": "5 Doyers St, New York, NY 10013"
+  },
+  {
+    "name": "Eataly NYC",
+    "cuisine": "Italian",
+    "detail": "Italian marketplace with multiple restaurants.",
+    "imageUrl": "http://localhost:10002/static/lasagna.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2605",
+    "infoLink": "[More Info](https://www.eataly.com/)",
+    "address": "200 5th Ave, New York, NY 10010"
+  },
+  {
+    "name": "Marea",
+    "cuisine": "Italian",
+    "detail": "Fine Italian seafood on Central Park South.",
+    "imageUrl": "http://localhost:10002/static/saffron%20risotto.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2605",
+    "infoLink": "[More Info](https://www.marea-nyc.com/)",
+    "address": "240 Central Park S, New York, NY 10019"
+  },
+  {
+    "name": "Carbone",
+    "cuisine": "Italian",
+    "detail": "Red sauce Italian in a retro setting.",
+    "imageUrl": "http://localhost:10002/static/Spaghetti%20Carbonara.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.carbonenewyork.com/)",
+    "address": "181 Thompson St, New York, NY 10012"
+  },
+  {
+    "name": "L'Artusi",
+    "cuisine": "Italian",
+    "detail": "Seasonal Italian with housemade pasta.",
+    "imageUrl": "http://localhost:10002/static/margharita.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.lartusi.com/)",
+    "address": "228 W 10th St, New York, NY 10014"
+  },
+  {
+    "name": "Via Carota",
+    "cuisine": "Italian",
+    "detail": "Rustic Italian in the West Village.",
+    "imageUrl": "http://localhost:10002/static/italian1.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.viacarota.com/)",
+    "address": "51 Grove St, New York, NY 10014"
+  },
+  {
+    "name": "Don Angie",
+    "cuisine": "Italian",
+    "detail": "Creative Italian-American in Greenwich Village.",
+    "imageUrl": "http://localhost:10002/static/italian2.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2605",
+    "infoLink": "[More Info](https://www.donangie.com/)",
+    "address": "103 Greenwich Ave, New York, NY 10014"
+  },
+  {
+    "name": "I Sodi",
+    "cuisine": "Italian",
+    "detail": "Tuscan comfort food in the West Village.",
+    "imageUrl": "http://localhost:10002/static/classic%20tiramasu.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.isodinyc.com/)",
+    "address": "105 Christopher St, New York, NY 10014"
+  },
+  {
+    "name": "Rubirosa",
+    "cuisine": "Italian",
+    "detail": "Thin-crust pizzas and classic Italian.",
+    "imageUrl": "http://localhost:10002/static/italian3.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.rubirosanyc.com/)",
+    "address": "235 Mulberry St, New York, NY 10012"
+  },
+  {
+    "name": "Junoon",
+    "cuisine": "Indian",
+    "detail": "Contemporary Indian fine dining in Flatiron.",
+    "imageUrl": "http://localhost:10002/static/logo.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2605",
+    "infoLink": "[More Info](https://www.junoonnyc.com/)",
+    "address": "27 W 24th St, New York, NY 10010"
+  },
+  {
+    "name": "Rasika",
+    "cuisine": "Indian",
+    "detail": "Modern Indian with tandoor specialties.",
+    "imageUrl": "http://localhost:10002/static/logo.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.rasikarestaurant.com/)",
+    "address": "204 E 39th St, New York, NY 10016"
+  },
+  {
+    "name": "Adda",
+    "cuisine": "Indian",
+    "detail": "Street-style Indian comfort food in Long Island City.",
+    "imageUrl": "http://localhost:10002/static/logo.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2606",
+    "infoLink": "[More Info](https://www.addanyc.com/)",
+    "address": "31-31 Thomson Ave, Long Island City, NY 11101"
+  },
+  {
+    "name": "Dhamaka",
+    "cuisine": "Indian",
+    "detail": "Bold regional Indian flavors in Essex Market.",
+    "imageUrl": "http://localhost:10002/static/logo.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2605",
+    "infoLink": "[More Info](https://www.dhamaka.nyc/)",
+    "address": "119 Delancey St, New York, NY 10002"
+  },
+  {
+    "name": "Semma",
+    "cuisine": "Indian",
+    "detail": "Upscale South Indian cuisine in Greenwich Village.",
+    "imageUrl": "http://localhost:10002/static/logo.png",
+    "rating": "\u2605\u2605\u2605\u2605\u2605",
+    "infoLink": "[More Info](https://www.semmanyc.com/)",
+    "address": "60 Greenwich Ave, New York, NY 10011"
+  }
+]
