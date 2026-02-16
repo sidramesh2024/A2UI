@@ -58,6 +58,7 @@ In the web app, try these prompts:
 
 | Demo | Command | Description |
 |------|---------|-------------|
+| **Simple Chat** | `npm run demo:chat` | Minimal chat app - type messages, get AI responses |
 | Component Gallery | `npm run serve:shell -- --gallery` | See all A2UI components (no agent required) |
 | Contact Lookup | `npm run demo:contact` | Contact lookup agent with search forms |
 | All demos | `npm run demo:all` | Restaurant + Contact agents together |
@@ -68,11 +69,12 @@ In the web app, try these prompts:
 a2ui-demo/
 ├── samples/
 │   ├── agent/adk/restaurant_finder/   # Python A2A agent
-│   ├── client/lit/                    # Lit web client + demos
-│   │   ├── shell/                     # Main app shell
-│   │   ├── component_gallery/         # Component showcase
-│   │   └── contact/                   # Contact lookup
-│   └── agent/adk/contact_lookup/      # Contact lookup agent
+│   ├── agent/adk/contact_lookup/      # Contact lookup agent
+│   ├── agent/adk/simple_chat/         # Simple chat agent
+│   └── client/lit/                    # Lit web client + demos
+│       ├── shell/                     # Main app shell
+│       ├── component_gallery/         # Component showcase
+│       └── contact/                   # Contact lookup
 ├── renderers/
 │   ├── lit/                           # Lit web renderer
 │   └── web_core/                      # Shared web types

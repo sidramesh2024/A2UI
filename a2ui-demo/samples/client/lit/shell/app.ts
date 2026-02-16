@@ -45,11 +45,13 @@ import "./ui/ui.js";
 import { AppConfig } from "./configs/types.js";
 import { config as restaurantConfig } from "./configs/restaurant.js";
 import { config as contactsConfig } from "./configs/contacts.js";
+import { config as chatConfig } from "./configs/chat.js";
 import { styleMap } from "lit/directives/style-map.js";
 
 const configs: Record<string, AppConfig> = {
   restaurant: restaurantConfig,
   contacts: contactsConfig,
+  chat: chatConfig,
 };
 
 @customElement("a2ui-shell")
@@ -335,7 +337,8 @@ export class A2UILayoutEditor extends SignalWatcher(LitElement) {
 
   #maybeRenderForm() {
     if (this.#requesting) return nothing;
-    if (this.#lastMessages.length > 0) return nothing;
+    // For chat app, always show the input for multi-turn conversation
+    if (this.#lastMessages.length > 0 && this.config.key !== "chat") return nothing;
 
     return html` <form
       @submit=${async (evt: Event) => {

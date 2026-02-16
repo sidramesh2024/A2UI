@@ -29,8 +29,11 @@ export default async () => {
     shell: resolve(__dirname, "index.html"),
   };
 
+  const openChat = process.env.VITE_OPEN_APP === "chat";
+
   return {
     plugins: [Middleware.A2AMiddleware.plugin()],
+    server: openChat ? { open: "/?app=chat" } : undefined,
     build: {
       rollupOptions: {
         input: entry,

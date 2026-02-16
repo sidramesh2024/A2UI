@@ -19,7 +19,10 @@
     "demo:restaurant": "npm install && npm run build:renderer && concurrently -k -n \"SHELL,REST\" -c \"magenta,blue\" \"npm run serve:shell\" \"npm run serve:agent:restaurant\"",
     "demo:contact": "npm install && npm run build:renderer && concurrently -k -n \"SHELL,CONT1\" -c \"magenta,green\" \"npm run serve:shell\" \"npm run serve:agent:contact_lookup\"",
     "demo:rizzcharts": "npm install && npm run build:renderer && concurrently -k -n \"SHELL,RIZZ\" -c \"magenta,yellow\" \"npm run serve:shell\" \"npm run serve:agent:rizzcharts\"",
-    "demo:orchestrator": "npm install && npm run build:renderer && concurrently -k -n \"SHELL,ORCH\" -c \"magenta,cyan\" \"npm run serve:shell\" \"npm run serve:agent:orchestrator\""
+    "demo:orchestrator": "npm install && npm run build:renderer && concurrently -k -n \"SHELL,ORCH\" -c \"magenta,cyan\" \"npm run serve:shell\" \"npm run serve:agent:orchestrator\"",
+    "serve:agent:chat": "cd ../../agent/adk/simple_chat && uv run .",
+    "demo:chat": "npm install && npm run build:renderer && concurrently -k -n \"SHELL,CHAT\" -c \"magenta,green\" \"npm run serve:shell:chat\" \"npm run serve:agent:chat\"",
+    "serve:shell:chat": "cd shell && VITE_OPEN_APP=chat npm run dev"
   },
   "devDependencies": {
     "concurrently": "9.2.1"
