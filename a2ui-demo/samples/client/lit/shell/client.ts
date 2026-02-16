@@ -23,6 +23,7 @@ const A2UI_MIME_TYPE = "application/json+a2ui";
 export class A2UIClient {
   #serverUrl: string;
   #client: A2AClient | null = null;
+  #contextId: string | undefined = undefined;
 
   constructor(serverUrl: string = "") {
     this.#serverUrl = serverUrl;
@@ -86,6 +87,7 @@ export class A2UIClient {
     const response = await client.sendMessage({
       message: {
         messageId: crypto.randomUUID(),
+        contextId: this.#contextId,
         role: "user",
         parts: parts,
         kind: "message",
@@ -96,7 +98,10 @@ export class A2UIClient {
       throw new Error(response.error.message);
     }
 
-    const result = (response as SendMessageSuccessResponse).result as Task;
+    const result = (response as SendMessageSuccessResponse).result as Task & { contextId?: string };
+    if (result?.contextId) {
+      this.#contextId = result.contextId;
+    }
     if (result.kind === "task" && result.status.message?.parts) {
       const messages: v0_8.Types.ServerToClientMessage[] = [];
       for (const part of result.status.message.parts) {

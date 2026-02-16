@@ -68,6 +68,10 @@ export class A2UILayoutEditor extends SignalWatcher(LitElement) {
   @state()
   accessor #lastMessages: v0_8.Types.ServerToClientMessage[] = [];
 
+  /** Chat history for multi-turn display (chat app only). */
+  @state()
+  accessor #chatHistory: Array<{ role: "user" | "assistant"; content: string }> = [];
+
   @state()
   accessor config: AppConfig = configs.restaurant;
 
@@ -351,8 +355,9 @@ export class A2UILayoutEditor extends SignalWatcher(LitElement) {
         if (!body) {
           return;
         }
-        const message = body as v0_8.Types.A2UIClientEventMessage;
+        const message = (body ?? "") as v0_8.Types.A2UIClientEventMessage | string;
         await this.#sendAndProcessMessage(message);
+        evt.target.reset();
       }}
     >
       ${this.config.heroImage
@@ -405,7 +410,7 @@ export class A2UILayoutEditor extends SignalWatcher(LitElement) {
   }
 
   async #sendMessage(
-    message: v0_8.Types.A2UIClientEventMessage
+    message: v0_8.Types.A2UIClientEventMessage | string
   ): Promise<v0_8.Types.ServerToClientMessage[]> {
     try {
       this.#requesting = true;
@@ -509,14 +514,106 @@ export class A2UILayoutEditor extends SignalWatcher(LitElement) {
     </section>`;
   }
 
-  async #sendAndProcessMessage(request) {
+  async #sendAndProcessMessage(request: v0_8.Types.A2UIClientEventMessage | string) {
+    const userText = typeof request === "string" ? request : this.#extractUserText(request);
+    if (this.config.key === "chat" && userText) {
+      this.#chatHistory = [...this.#chatHistory, { role: "user", content: userText }];
+    }
+
     const messages = await this.#sendMessage(request);
 
-    console.log(messages);
+    if (this.config.key === "chat" && messages.length > 0) {
+      const assistantText = this.#extractAssistantText(messages);
+      if (assistantText) {
+        this.#chatHistory = [...this.#chatHistory, { role: "assistant", content: assistantText }];
+      }
+      const chatA2ui = this.#buildChatA2ui(this.#chatHistory);
+      this.#lastMessages = chatA2ui;
+      this.#processor.clearSurfaces();
+      this.#processor.processMessages(chatA2ui);
+    } else {
+      this.#lastMessages = messages;
+      this.#processor.clearSurfaces();
+      this.#processor.processMessages(messages);
+    }
+  }
 
-    this.#lastMessages = messages;
-    this.#processor.clearSurfaces();
-    this.#processor.processMessages(messages);
+  #extractUserText(request: v0_8.Types.A2UIClientEventMessage | string): string {
+    if (typeof request === "string") return request;
+    if (request.userAction?.context?.message) return String(request.userAction.context.message);
+    return "";
+  }
+
+  #extractAssistantText(messages: v0_8.Types.ServerToClientMessage[]): string {
+    for (const msg of messages) {
+      const dm = msg?.dataModelUpdate as { surfaceId?: string; contents?: Array<{ key: string; valueString?: string }> } | undefined;
+      if (dm?.contents) {
+        const r = dm.contents.find((c) => c.key === "response");
+        if (r?.valueString) return r.valueString;
+      }
+    }
+    return "";
+  }
+
+  #buildChatA2ui(history: Array<{ role: "user" | "assistant"; content: string }>): v0_8.Types.ServerToClientMessage[] {
+    if (history.length === 0) return [];
+
+    const childIds = history.map((_, i) => `msg-${i}`);
+    const components: Array<{ id: string; component: Record<string, unknown> }> = [
+      {
+        id: "chat-root",
+        component: {
+          Column: {
+            children: { explicitList: childIds },
+            distribution: "start",
+            alignment: "stretch",
+          },
+        },
+      },
+    ];
+    const contents: Array<{ key: string; valueString: string }> = [];
+
+    for (let i = 0; i < history.length; i++) {
+      const { role, content } = history[i];
+      components.push({
+        id: `msg-${i}`,
+        component: {
+          Card: { child: `msg-text-${i}` },
+        },
+      });
+      components.push({
+        id: `msg-text-${i}`,
+        component: {
+          Text: {
+            text: { path: `/${role}-${i}` },
+            usageHint: "body",
+          },
+        },
+      });
+      contents.push({ key: `${role}-${i}`, valueString: content });
+    }
+
+    return [
+      {
+        beginRendering: {
+          surfaceId: "chat",
+          root: "chat-root",
+          styles: { primaryColor: "#6366f1", font: "system-ui" },
+        },
+      },
+      {
+        surfaceUpdate: {
+          surfaceId: "chat",
+          components,
+        },
+      },
+      {
+        dataModelUpdate: {
+          surfaceId: "chat",
+          contents,
+        },
+      },
+    ] as v0_8.Types.ServerToClientMessage[];
   }
 
   snackbar(

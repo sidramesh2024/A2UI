@@ -285,3 +285,11 @@ This section compares A2UI with popular frameworks for building AI chat and agen
 - Your team is Python-focused and prefers not to maintain a separate frontend.
 - A single, standard chat UI is sufficient.
 - You need a large ecosystem of components and examples.
+
+### Chainlit Example in This Repo
+
+A Chainlit + Gemini chat application is available at `samples/agent/chainlit/` for direct comparison. Run it with:
+
+```bash
+cd samples/agent/chainlit && uv sync && chainlit run app.py -w
+```
